@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -16,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 @ToString
-public class Training implements Serializable {
+public class Training  {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,5 +22,9 @@ public class Training implements Serializable {
     private double price;
     private int quantity;
     private String imgURL;
+
+    @ManyToOne
+    private Category category;
+
 
 }
