@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
+import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,7 +24,7 @@ class FmsSpringTrainingsApiApplicationTests {
 
 		mockMvc.perform(get("/api/trainings"))
 				.andExpect(status().isOk())
-				.andExpect((ResultMatcher) jsonPath("$[0].name",is("React")));
+				.andExpect((ResultMatcher) jsonPath("$[0].name",is("Java-bien")));
 	}
 
 }

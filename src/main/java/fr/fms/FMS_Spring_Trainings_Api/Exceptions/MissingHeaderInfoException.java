@@ -1,4 +1,4 @@
-package fr.fms.FMS_Spring_Trainings_Api.service;
+package fr.fms.FMS_Spring_Trainings_Api.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

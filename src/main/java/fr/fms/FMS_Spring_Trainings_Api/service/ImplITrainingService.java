@@ -1,6 +1,8 @@
 package fr.fms.FMS_Spring_Trainings_Api.service;
 
+import fr.fms.FMS_Spring_Trainings_Api.dao.CategoryRepository;
 import fr.fms.FMS_Spring_Trainings_Api.dao.TrainingRepository;
+import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
 import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ public class ImplITrainingService implements ITrainingService{
 
     @Autowired
     TrainingRepository trainingRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @Override
     public List<Training> getAllTrainings() {
@@ -43,5 +48,22 @@ public class ImplITrainingService implements ITrainingService{
     @Override
     public Optional<Training> readTraining(Long id) {
         return trainingRepository.findById(id);
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public List<Training> getTrainingsByCategoryId(Long id) {
+        return trainingRepository.findTrainingsByCategoryId(id);
     }
 }

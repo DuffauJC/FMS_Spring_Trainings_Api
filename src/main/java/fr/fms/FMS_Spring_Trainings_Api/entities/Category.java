@@ -1,4 +1,5 @@
 package fr.fms.FMS_Spring_Trainings_Api.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
@@ -24,7 +25,7 @@ public class Category {
 	private String description;
 
 
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="category") @JsonIgnore
 	private Collection<Training>trainings;
 
 	public Category(Long id, String name, String description) {

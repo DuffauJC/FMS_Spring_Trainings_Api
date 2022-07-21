@@ -2,7 +2,7 @@ package fr.fms.FMS_Spring_Trainings_Api.web;
 
 import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
 import fr.fms.FMS_Spring_Trainings_Api.service.ImplITrainingService;
-import fr.fms.FMS_Spring_Trainings_Api.service.RecordNotFoundException;
+import fr.fms.FMS_Spring_Trainings_Api.Exceptions.RecordNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
