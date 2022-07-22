@@ -2,9 +2,11 @@ package fr.fms.FMS_Spring_Trainings_Api.service;
 
 import fr.fms.FMS_Spring_Trainings_Api.dao.CategoryRepository;
 import fr.fms.FMS_Spring_Trainings_Api.dao.CustomerRepository;
+import fr.fms.FMS_Spring_Trainings_Api.dao.OrderRepository;
 import fr.fms.FMS_Spring_Trainings_Api.dao.TrainingRepository;
 import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
 import fr.fms.FMS_Spring_Trainings_Api.entities.Customer;
+import fr.fms.FMS_Spring_Trainings_Api.entities.Orders;
 import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,8 @@ public class ImplITrainingService implements ITrainingService{
 
     @Autowired
     CustomerRepository customerRepository;
+    @Autowired
+    OrderRepository orderRepository;
 
     @Override
     public List<Training> getAllTrainings() {
@@ -79,5 +83,15 @@ public class ImplITrainingService implements ITrainingService{
     @Override
     public Optional<Customer> getCustomerByMail(String mail) {
         return customerRepository.findByMail(mail);
+    }
+
+    /**
+     * @param o
+     * @return
+     */
+    @Override
+    public Orders saveOrder(Orders o) {
+
+        return orderRepository.save(o);
     }
 }

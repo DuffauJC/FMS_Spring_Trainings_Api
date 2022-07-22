@@ -53,6 +53,7 @@ public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
 
         //customerRepository.save(new Customer(null,"jcd@fr","MjV0eTUw","Duffau","Jean-Charles","887 rte","0605","admin"));
         // customerRepository.save(new Customer(null,"rabbit@free.fr","YXE0NTg4","Rabbit","Roger","25, rue de la carotte","4578","customer"));
+
     }
 }
 
