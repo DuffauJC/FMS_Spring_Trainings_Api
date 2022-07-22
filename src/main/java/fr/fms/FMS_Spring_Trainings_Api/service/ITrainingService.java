@@ -1,6 +1,7 @@
 package fr.fms.FMS_Spring_Trainings_Api.service;
 
 import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
+import fr.fms.FMS_Spring_Trainings_Api.entities.Customer;
 import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface ITrainingService {
     public List<Category> getAllCategories();
 
     public List<Training> getTrainingsByCategoryId(Long id);
+
+    // customer
+    public Optional<Customer> getCustomerByMail(String mail);
 }

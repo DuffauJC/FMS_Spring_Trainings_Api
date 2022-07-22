@@ -13,10 +13,10 @@ import lombok.ToString;
 
 @Entity
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class User {
+public class Customer {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -25,15 +25,20 @@ public class User {
 
 	@NotNull
 	private String password;
-
+	private String name;
+	private String firstName;
 	private String address;
 	private String phone;
 	private String role;
-	
 
-
-
-	
-
-	
+	public Customer(Long id, String mail, String password, String name, String firstName, String address, String phone, String role) {
+		this.id = id;
+		this.mail = mail;
+		this.password = password;
+		this.name = name;
+		this.firstName = firstName;
+		this.address = address;
+		this.phone = phone;
+		this.role = role;
+	}
 }

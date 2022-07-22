@@ -1,36 +1,41 @@
-	package fr.fms.FMS_Spring_Trainings_Api;
+package fr.fms.FMS_Spring_Trainings_Api;
 
-	import fr.fms.FMS_Spring_Trainings_Api.dao.CategoryRepository;
-	import fr.fms.FMS_Spring_Trainings_Api.dao.TrainingRepository;
-	import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
-	import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
-	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.boot.CommandLineRunner;
-	import org.springframework.boot.SpringApplication;
-	import org.springframework.boot.autoconfigure.SpringBootApplication;
+import fr.fms.FMS_Spring_Trainings_Api.dao.CategoryRepository;
+import fr.fms.FMS_Spring_Trainings_Api.dao.CustomerRepository;
+import fr.fms.FMS_Spring_Trainings_Api.dao.TrainingRepository;
+import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
+import fr.fms.FMS_Spring_Trainings_Api.entities.Customer;
+import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-	@SpringBootApplication
-	public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
+@SpringBootApplication
+public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
 
-	@Autowired
-	private TrainingRepository trainingRepository;
+    @Autowired
+    private TrainingRepository trainingRepository;
 
-	@Autowired
-	private CategoryRepository categoryRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
-	public static void main(String[] args) {
-	SpringApplication.run(FmsSpringTrainingsApiApplication.class, args);
-	}
+    @Autowired
+    private CustomerRepository customerRepository;
 
-	/**
-	* Callback used to run the bean.
-	*
-	* @param args incoming main method arguments
-	* @throws Exception on error
-	*/
-	@Override
-	public void run(String... args) throws Exception {
+    public static void main(String[] args) {
+        SpringApplication.run(FmsSpringTrainingsApiApplication.class, args);
+    }
+
+    /**
+     * Callback used to run the bean.
+     *
+     * @param args incoming main method arguments
+     * @throws Exception on error
+     */
+    @Override
+    public void run(String... args) throws Exception {
 
 //	Category Front = categoryRepository.save(new Category(null,"Front","Technos en lien avec l'utilisateur"));
 //	Category Back = categoryRepository.save(new Category(null,"Back","Langages coté serveur"));
@@ -45,6 +50,9 @@
 //	trainingRepository.save(new Training(null,"React","Formation React/Front 12 jours",1200,1,"assets/img/react.png",Front));
 //	trainingRepository.save(new Training(null,"Github","Formation Git/Github 10 jours",1600,1,"assets/img/github.png",Versionning));
 //	trainingRepository.save(new Training(null,"Javascript","Formation d'une vie",1600,1,"assets/img/js.png",Front));
-	}
-	}
+
+        //customerRepository.save(new Customer(null,"jcd@fr","MjV0eTUw","Duffau","Jean-Charles","887 rte","0605","admin"));
+        // customerRepository.save(new Customer(null,"rabbit@free.fr","YXE0NTg4","Rabbit","Roger","25, rue de la carotte","4578","customer"));
+    }
+}
 
