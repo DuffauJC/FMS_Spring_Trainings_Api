@@ -25,17 +25,16 @@ import lombok.ToString;
 @ToString
 public class Orders {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long orderId;
-	@ManyToOne
-	private Customer customer;
+	private Long ordersId;
+	private Long customerId;
 	private Date date;
 	private double amount;
-	@OneToMany(mappedBy="orders")
+	@OneToMany(mappedBy="ordersId")
 	private Collection<OrdersItem> ordersItem;
 	
-	public Orders(Long orderId, Customer customer, Date date, double amount) {
-		this.orderId = orderId;
-		this.customer = customer;
+	public Orders(Long ordersId, Long customerId, Date date, double amount) {
+		this.ordersId = ordersId;
+		this.customerId = customerId;
 		this.date = date;
 		this.amount = amount;
 	}

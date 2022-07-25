@@ -1,9 +1,6 @@
 package fr.fms.FMS_Spring_Trainings_Api.service;
 
-import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Customer;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Orders;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
+import fr.fms.FMS_Spring_Trainings_Api.entities.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,4 +24,6 @@ public interface ITrainingService {
     public Optional<Customer> getCustomerByMail(String mail);
 
    public  Orders saveOrder(Orders o);
+
+    public OrdersItem saveOrdersItem(OrdersItem oi);
 }

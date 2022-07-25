@@ -21,16 +21,8 @@ public class OrdersItem {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderItemId;
-	@ManyToOne
-	private Orders orders;
-	@ManyToOne
-	private Training training;
-
+	private Long ordersId;
+	private Long trainingId;
 	private int quantity;
-	
-	public OrdersItem(Orders orders, int quantity) {
-		this.orders = orders;
-		this.quantity = quantity;
-	}
 
 }

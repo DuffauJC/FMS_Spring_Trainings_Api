@@ -1,13 +1,7 @@
 package fr.fms.FMS_Spring_Trainings_Api.service;
 
-import fr.fms.FMS_Spring_Trainings_Api.dao.CategoryRepository;
-import fr.fms.FMS_Spring_Trainings_Api.dao.CustomerRepository;
-import fr.fms.FMS_Spring_Trainings_Api.dao.OrderRepository;
-import fr.fms.FMS_Spring_Trainings_Api.dao.TrainingRepository;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Customer;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Orders;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
+import fr.fms.FMS_Spring_Trainings_Api.dao.*;
+import fr.fms.FMS_Spring_Trainings_Api.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +21,8 @@ public class ImplITrainingService implements ITrainingService{
     CustomerRepository customerRepository;
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    OrderItemRepository orderItemRepository;
 
     @Override
     public List<Training> getAllTrainings() {
@@ -93,5 +89,14 @@ public class ImplITrainingService implements ITrainingService{
     public Orders saveOrder(Orders o) {
 
         return orderRepository.save(o);
+    }
+
+    /**
+     * @param oi
+     * @return
+     */
+    @Override
+    public OrdersItem saveOrdersItem(OrdersItem oi) {
+        return orderItemRepository.save(oi);
     }
 }
