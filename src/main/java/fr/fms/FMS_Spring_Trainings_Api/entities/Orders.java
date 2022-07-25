@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,8 +30,7 @@ public class Orders {
 	private Long customerId;
 	private Date date;
 	private double amount;
-	@OneToMany(mappedBy="ordersId")
-	private Collection<OrdersItem> ordersItem;
+
 	
 	public Orders(Long ordersId, Long customerId, Date date, double amount) {
 		this.ordersId = ordersId;

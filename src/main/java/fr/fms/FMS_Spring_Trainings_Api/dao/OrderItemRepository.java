@@ -7,10 +7,12 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.List;
+
 @CrossOrigin("*")
 @RepositoryRestResource
 @Repository
 public interface OrderItemRepository extends JpaRepository<OrdersItem,Long> {
-
+    public List<OrdersItem> findOrdersItemByOrdersId(Long id);
 
 }

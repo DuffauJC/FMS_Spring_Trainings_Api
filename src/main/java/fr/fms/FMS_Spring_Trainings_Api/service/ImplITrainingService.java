@@ -99,4 +99,22 @@ public class ImplITrainingService implements ITrainingService{
     public OrdersItem saveOrdersItem(OrdersItem oi) {
         return orderItemRepository.save(oi);
     }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public Optional<Orders> getOrdersById(Long id) {
+        return orderRepository.findById(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public List<OrdersItem> getOrdersItemsByOrderId(Long id) {
+        return orderItemRepository.findOrdersItemByOrdersId(id);
+    }
 }

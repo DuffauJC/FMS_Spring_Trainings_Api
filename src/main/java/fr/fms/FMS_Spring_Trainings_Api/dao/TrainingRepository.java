@@ -13,7 +13,7 @@ import java.util.List;
 @RepositoryRestResource
 @Repository
 public interface TrainingRepository extends JpaRepository<Training, Long> {
-//public List<Training>findAll();
+
 
     public List<Training> findTrainingsByCategoryId(Long id);
 }
