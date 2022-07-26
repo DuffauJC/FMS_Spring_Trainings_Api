@@ -3,16 +3,21 @@ package fr.fms.FMS_Spring_Trainings_Api;
 import fr.fms.FMS_Spring_Trainings_Api.dao.CategoryRepository;
 import fr.fms.FMS_Spring_Trainings_Api.dao.CustomerRepository;
 import fr.fms.FMS_Spring_Trainings_Api.dao.TrainingRepository;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Customer;
-import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
+import fr.fms.FMS_Spring_Trainings_Api.file.service.FileSystemStorageService;
+import fr.fms.FMS_Spring_Trainings_Api.file.service.properties.FileUploadProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
+import javax.annotation.Resource;
 
 
 @SpringBootApplication
+@EnableConfigurationProperties({
+        FileUploadProperties.class
+})
 public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
 
     @Autowired
@@ -24,6 +29,8 @@ public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepository;
 
+//    @Resource
+//    FileSystemStorageService storageService;
     public static void main(String[] args) {
         SpringApplication.run(FmsSpringTrainingsApiApplication.class, args);
     }
@@ -36,6 +43,9 @@ public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
+
+
+
 
 //	Category Front = categoryRepository.save(new Category(null,"Front","Technos en lien avec l'utilisateur"));
 //	Category Back = categoryRepository.save(new Category(null,"Back","Langages coté serveur"));
