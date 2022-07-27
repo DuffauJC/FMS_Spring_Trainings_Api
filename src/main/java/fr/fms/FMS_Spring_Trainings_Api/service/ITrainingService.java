@@ -17,6 +17,7 @@ public interface ITrainingService {
 
     //   categories
     public List<Category> getAllCategories();
+    public Optional<Category> readCategory(Long id);
 
     public List<Training> getTrainingsByCategoryId(Long id);
 

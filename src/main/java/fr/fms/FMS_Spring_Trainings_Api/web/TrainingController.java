@@ -24,7 +24,9 @@ public class TrainingController {
 
     @PostMapping("/trainings")
     public Training saveTraining(@RequestBody Training t){
+        System.out.println(t);
         return trainingService.saveTraining(t);
+
     }
 
     @DeleteMapping("/trainings/{id}")

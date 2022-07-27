@@ -27,5 +27,8 @@ public class CategoryController {
     return trainingService.getTrainingsByCategoryId(id);
 
        }
-
+    @GetMapping("/categoryById/{id}")
+    public Category getCategoryById(@PathVariable("id")Long id){
+        return trainingService.readCategory(id).get();
+    }
 }

@@ -68,6 +68,15 @@ public class ImplITrainingService implements ITrainingService{
      * @return
      */
     @Override
+    public Optional<Category> readCategory(Long id) {
+        return categoryRepository.findById(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
     public List<Training> getTrainingsByCategoryId(Long id) {
         return trainingRepository.findTrainingsByCategoryId(id);
     }
