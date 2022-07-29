@@ -39,6 +39,15 @@ public class ImplITrainingService implements ITrainingService{
     }
 
     /**
+     * @param t
+     * @return
+     */
+    @Override
+    public Training updateTraining(Training t) {
+        return trainingRepository.save(t);
+    }
+
+    /**
      * @param id
      */
     @Override

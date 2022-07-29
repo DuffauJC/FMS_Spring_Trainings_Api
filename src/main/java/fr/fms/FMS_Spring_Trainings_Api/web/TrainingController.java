@@ -45,5 +45,13 @@ public class TrainingController {
         }
 
         }
+    @PutMapping("/updateTraining")
+    public Training updateTraining(@RequestBody Training t){
+        Training newTraining =new Training(t.getId(),t.getName(),t.getDescription(),t.getPrice(),t.getQuantity(),t.getImgURL(),trainingService.readCategory(t.getCatId()).get());
 
+        if (t.getId() != null) {
+            return trainingService.updateTraining(newTraining);
+        }
+        return null;
+    }
 }

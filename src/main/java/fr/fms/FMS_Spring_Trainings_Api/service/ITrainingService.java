@@ -10,6 +10,7 @@ public interface ITrainingService {
     public List<Training> getAllTrainings();
 
     public Training saveTraining(Training t);
+    public Training updateTraining(Training t);
 
     public void deleteTraining(Long id);
 
