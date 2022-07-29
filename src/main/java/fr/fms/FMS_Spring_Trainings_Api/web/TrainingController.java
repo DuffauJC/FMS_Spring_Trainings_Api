@@ -24,8 +24,8 @@ public class TrainingController {
 
     @PostMapping("/trainings")
     public Training saveTraining(@RequestBody Training t){
-        System.out.println(t);
-        return trainingService.saveTraining(t);
+        Training newTraining =new Training(t.getName(),t.getDescription(),t.getPrice(),t.getQuantity(),t.getImgURL(),trainingService.readCategory(t.getCatId()).get());
+        return trainingService.saveTraining(newTraining);
 
     }
 
