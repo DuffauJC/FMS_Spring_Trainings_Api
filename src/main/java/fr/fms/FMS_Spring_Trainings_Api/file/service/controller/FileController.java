@@ -20,11 +20,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/api")
 public class FileController {
     @Autowired
-    IFileSytemStorage fileSytemStorage;
+    IFileSytemStorage fileSystemStorage;
 
     @PostMapping("/uploadfile")
     public ResponseEntity<FileResponse> uploadSingleFile (@RequestParam("file") MultipartFile file) {
-        String upfile = fileSytemStorage.saveFile(file);
+        String upfile = fileSystemStorage.saveFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/api/download/")
@@ -41,7 +41,7 @@ public class FileController {
                 .stream()
                 .map(
                         file -> {
-                            String upfile = fileSytemStorage.saveFile(file);
+                            String upfile = fileSystemStorage.saveFile(file);
                             String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                                     .path("/api/download/")
                                     .path(upfile)
@@ -55,7 +55,7 @@ public class FileController {
     @GetMapping("/download/{filename:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
 
-        Resource resource = fileSytemStorage.loadFile(filename);
+        Resource resource = fileSystemStorage.loadFile(filename);
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")

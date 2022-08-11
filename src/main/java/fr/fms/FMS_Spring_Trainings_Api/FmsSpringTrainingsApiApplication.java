@@ -7,13 +7,17 @@ import fr.fms.FMS_Spring_Trainings_Api.entities.Category;
 import fr.fms.FMS_Spring_Trainings_Api.entities.Training;
 import fr.fms.FMS_Spring_Trainings_Api.file.service.FileSystemStorageService;
 import fr.fms.FMS_Spring_Trainings_Api.file.service.properties.FileUploadProperties;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.annotation.Resource;
+
 
 
 @SpringBootApplication
@@ -31,12 +35,16 @@ public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepository;
 
-//    @Resource
+
+    //    @Resource
 //    FileSystemStorageService storageService;
     public static void main(String[] args) {
         SpringApplication.run(FmsSpringTrainingsApiApplication.class, args);
     }
-
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
     /**
      * Callback used to run the bean.
      *
@@ -45,8 +53,6 @@ public class FmsSpringTrainingsApiApplication implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
-
-
 
 
 //	Category Front = categoryRepository.save(new Category(1L,"Front","Technos en lien avec l'utilisateur"));
